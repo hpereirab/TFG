@@ -1,0 +1,24 @@
+version: '3'
+services:
+  lab1:
+    container_name: lab1
+    networks:
+      - lab
+    image: lab/ubuntu:bionic
+    volumes:
+      - $PWD/lab/data:/home/ubuntu/Desktop/data
+      - $PWD/lab/lab1:/home/ubuntu/
+  lab2:
+    container_name: lab2
+    networks:
+      - lab
+    image: lab/ubuntu:bionic
+    volumes:
+      - $PWD/lab/data:/home/ubuntu/Desktop/data
+      - $PWD/lab/lab2:/home/ubuntu/
+networks:
+  lab:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
