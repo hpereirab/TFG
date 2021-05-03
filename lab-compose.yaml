@@ -16,6 +16,30 @@ services:
     volumes:
       - $PWD/lab/data:/home/ubuntu/Desktop/data
       - $PWD/lab/lab2:/home/ubuntu/
+  lab3:
+    container_name: lab3
+    networks:
+      - lab
+    image: lab/ubuntu:bionic
+    volumes:
+      - $PWD/lab/data:/home/ubuntu/Desktop/data
+      - $PWD/lab/lab3:/home/ubuntu/
+  lab4:
+    container_name: lab4
+    networks:
+      - lab
+    image: lab/ubuntu:bionic
+    volumes:
+      - $PWD/lab/data:/home/ubuntu/Desktop/data
+      - $PWD/lab/lab4:/home/ubuntu/
+  lab5:
+    container_name: lab5
+    networks:
+      - lab
+    image: lab/ubuntu:bionic
+    volumes:
+      - $PWD/lab/data:/home/ubuntu/Desktop/data
+      - $PWD/lab/lab5:/home/ubuntu/
 networks:
   lab:
     driver: bridge

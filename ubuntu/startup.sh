@@ -2,11 +2,11 @@
 
 # Required if you plan to start SSH
 mkdir -p /var/run/sshd
-
+service ssh start
 # Sets the user and password with admin permissions
 MYUSER=ubuntu
 MYPASS=ubuntu
-id -u $MYUSER &>/dev/null || useradd --create-home --shell /bin/bash --user-group --groups adm,sudo $MYUSER
+id -u $MYUSER &>/dev/null || useradd --create-home --shell /bin/bash --user-group --groups users $MYUSER
 echo "$MYUSER:$MYPASS" | chpasswd
 
 # Supervisor keeps X and x11vnc running
