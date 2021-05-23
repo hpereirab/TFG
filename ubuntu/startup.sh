@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Required if you plan to start SSH
+echo "root:linux" | chpasswd
 mkdir -p /var/run/sshd
 service ssh start
 # Sets the user and password with admin permissions

@@ -1,0 +1,20 @@
+## Custom Dockerfile
+FROM consol/ubuntu-xfce-vnc
+ENV REFRESHED_AT 2018-03-18
+
+# Switch to root user to install additional software
+USER 0
+
+## Install a gedit
+RUN apt-get install nano openssh-server
+
+## ADD USER
+RUN \
+  useradd alumno && \
+  /usr/bin/ssh-keygen -A && \
+  echo 1234 | passwd alumno --stdin
+
+WORKDIR /home/alumno
+
+## switch back to default user
+USER 1000
